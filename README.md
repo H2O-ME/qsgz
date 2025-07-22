@@ -1,7 +1,7 @@
 <div align="center">
   <img src="https://qsgz.thw.lol/favicon.ico" alt="淄博齐盛高级中学" width="200">
   <h1>淄博齐盛高级中学网站</h1>
-  <p>现代化的学生自制的学校网站</p>
+  <p>学生自制的现代化的学校网站</p>
   
   ![License](https://img.shields.io/badge/License-MIT-blue.svg)
   ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)

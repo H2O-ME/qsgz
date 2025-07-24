@@ -134,13 +134,13 @@
 
 | 导航项 | 数据模态属性 | 目标模态 ID | 内容类型 |
 | --- | --- | --- | --- |
-| 学校简介 | `data-modal="intro"` | `intro-modal` | 学校介绍 |
-| 学校概况 | `data-modal="info"` | `info-modal` | 学校概况 |
-| 学校领导 | `data-modal="leadership"` | `leadership-modal` | 领导信息 |
-| 师资队伍 | `data-modal="teachers"` | `teachers-modal` | 教师详情 |
-| 学生发展 | `data-modal="students"` | `students-modal` | 学生发展 |
-| 办学特色 | `data-modal="features"` | `features-modal` | 学校特色 |
-| 招生信息 | `data-modal="admission"` | `admission-modal` | 入学信息 |
+| 学校简介 | `data-modal="intro"` | `intro-modal` |
+| 学校概况 | `data-modal="info"` | `info-modal` |
+| 学校领导 | `data-modal="leadership"` | `leadership-modal` |
+| 师资队伍 | `data-modal="teachers"` | `teachers-modal` |
+| 学生发展 | `data-modal="students"` | `students-modal` |
+| 办学特色 | `data-modal="features"` | `features-modal` |
+| 招生信息 | `data-modal="admission"` | `admission-modal` |
 ```html
     <!-- 导航栏 -->
     <nav class="main-nav" role="navigation">
@@ -186,7 +186,7 @@
 ```
 
 ### 新闻标题与首页展示图片自定义
-<img width="1578" height="779" alt="image" src="https://github.com/user-attachments/assets/fd0c345b-2301-4f5a-a1d8-4d67517a2219" />
+
 
 修改文字与资源依赖：
 
@@ -206,6 +206,7 @@
 
 
 ### 新闻内容自定义
+<img width="1578" height="779" alt="image" src="https://github.com/user-attachments/assets/fd0c345b-2301-4f5a-a1d8-4d67517a2219" />
 以第一条新闻为例：
 
 ```html

@@ -8,7 +8,10 @@
   ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
   ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
   ![jQuery](https://img.shields.io/badge/jQuery-0769AD?style=flat&logo=jquery&logoColor=white)
+  [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/H2O-ME/qsgz)
 </div>
+
+
 
 ## ✨ 项目亮点
 
@@ -34,25 +37,12 @@
 - 资源压缩
 - 浏览器缓存策略
 
-## 🛠️ 技术栈
-
-### 核心框架
-- **HTML5** - 语义化标签，现代化网页结构
-- **CSS3** - 响应式布局，动画效果
-- **JavaScript (ES6+)** - 交互逻辑实现
-
-### 主要库
-- **jQuery** - DOM操作与事件处理
-- **html2canvas** - 前端截图功能
-- **Font Awesome** - 图标库
-- **Google Fonts** - 网页字体
-
-### 开发工具
-- **Visual Studio Code** - 代码编辑器
-- **Git** - 版本控制
-- **Microsoft Edge DevTools** - 调试工具
-
-
+### 系统集成
+* **Microsoft Clarity**：用户分析和行为跟踪
+* **720yun VR服务**：沉浸式校园游览体验
+* **哔哩哔哩**：校园展示嵌入式视频内容
+* **Google 字体**：排版增强
+## 部署
 
 
 
@@ -64,9 +54,60 @@
 4. 更新你的静态资源到 `static` 目录下
 
 
-## 🎨 网站自定义指南
+## 开发
+### 开发环境
 
-### 1. 弹窗信息自定义
+作为纯前端应用，只需要最少的设置。可以使用任何现代 Web 浏览器和基本文件服务功能立即开始开发。
+
+**所需工具：**
+
+* 现代网络浏览器（Chrome、Firefox、Safari、Edge）
+* 文本编辑器或 IDE（推荐 Visual Studio Code）
+* 用于版本控制的 Git
+* 本地 Web 服务器（可选，但推荐）
+
+**开始：**
+
+1. 克隆存储库
+2. 在现代浏览器中打开 `index.html`
+3. 对于使用实时重新加载的开发，请通过本地 Web 服务器提供文件
+### 核心组件
+
+| 元件 | File | 目的 |
+| --- | --- | --- |
+| 主网站 | `index.html` | 网站总框架 |
+| 录取通知书生成器 | `admission_notice.html` | 独立的录取通知书创建工具 |
+| 样式管理 | `style.css`, `globle.css` | 响应式设计和 UI 框架 |
+| JS代码 | `app.min.js` | UI 管理和交互功能 |
+| 静态资源 | `static/image/*` | 媒体内容和视觉资源 |
+| SEO 配置 | `robots.txt`,`sitemap.xml` | 搜索引擎优化和内容发现 |
+
+
+### HTML 文档结构
+主网站使用具有基于模态的内容架构的 index.html 实现为单页应用程序。所有内容部分都嵌入为隐藏的模式容器，并通过 JavaScript 交互动态显示。
+<img width="1798" height="215" alt="image" src="https://github.com/user-attachments/assets/a7ba31ea-8b49-4ee2-91de-8a664c2437a7" />
+### 模态系统架构
+内容交付机制使用了复杂的模态框系统，菜单导航链接触发的是隐藏内容容器的显示，而不是传统的页面导航。
+<img width="1696" height="346" alt="image" src="https://github.com/user-attachments/assets/2f517933-bf86-4a87-991e-7a5c10f5c6b8" />
+模态系统使用 CSS 和 JavaScript 的组合来实现流畅的交互：
+* **CSS 类** ：.modal-container、.modal、.modal-content、.modal-open
+* **JavaScript 函数** ：showModal（）， 关闭作的事件处理程序
+* **动画** ：具有 transform 和 opacity 属性的 CSS 过渡
+
+### 关键修改点
+
+| 元件 | 文件位置 | 线 | 描述 |
+| --- | --- | --- | --- |
+| 网站通知 | `index.html` | 147-157 | 欢迎弹窗内容 |
+| 导航 | `index.html` | 160-173 | 主要导航链接 |
+| 模态框 | `index.html` | 175-332 | 学校信息模式 |
+| 新闻版块 | `index.html` | 367-527 | 新闻文章和公告 |
+| 校园风光 | `index.html` | 775-815 | 照片库内容 |
+| 页脚 | `index.html` | 819-828 | 联系信息 |
+
+
+
+### 弹窗信息自定义
 打开 `index.html` 文件，找到以下部分进行文字自定义：
 
 ```html
@@ -86,9 +127,20 @@
     </div>
 ```
 
-### 2. 导航栏标题信息自定义
-在 `index.html` 中定位到导航栏部分，可更新文字：
+### 导航栏标题信息自定义
 
+在 `index.html` 中定位到导航栏部分：
+#### 导航链接配置
+
+| 导航项 | 数据模态属性 | 目标模态 ID | 内容类型 |
+| --- | --- | --- | --- |
+| 学校简介 | `data-modal="intro"` | `intro-modal` | 学校介绍 |
+| 学校概况 | `data-modal="info"` | `info-modal` | 学校概况 |
+| 学校领导 | `data-modal="leadership"` | `leadership-modal` | 领导信息 |
+| 师资队伍 | `data-modal="teachers"` | `teachers-modal` | 教师详情 |
+| 学生发展 | `data-modal="students"` | `students-modal` | 学生发展 |
+| 办学特色 | `data-modal="features"` | `features-modal` | 学校特色 |
+| 招生信息 | `data-modal="admission"` | `admission-modal` | 入学信息 |
 ```html
     <!-- 导航栏 -->
     <nav class="main-nav" role="navigation">
@@ -108,7 +160,7 @@
 
 ```
 
-### 3. 导航栏窗口内容自定义
+### 导航栏窗口内容自定义
 在 `index.html` 中导航栏部分下方即是，按需修改，格式：
 
 ```html
@@ -133,7 +185,9 @@
         </div>
 ```
 
-### 4. 新闻标题与首页展示图片自定义
+### 新闻标题与首页展示图片自定义
+<img width="1578" height="779" alt="image" src="https://github.com/user-attachments/assets/fd0c345b-2301-4f5a-a1d8-4d67517a2219" />
+
 修改文字与资源依赖：
 
 ```html
@@ -151,7 +205,7 @@
 ```
 
 
-### 5. 新闻内容自定义
+### 新闻内容自定义
 以第一条新闻为例：
 
 ```html
@@ -168,7 +222,7 @@
         </div>
 ```
 
-### 6. 校园风光图片自定义
+### 校园风光图片自定义
 ```html
     <!-- 校园风光页 -->
     <section class="campus-section">
@@ -216,8 +270,7 @@
 ```
 
 
-### 7. 页脚内容自定义
-以第一条新闻为例：
+### 页脚内容自定义
 
 ```html
    <!-- 页脚 -->

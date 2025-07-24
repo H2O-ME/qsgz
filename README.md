@@ -132,7 +132,7 @@
 在 `index.html` 中定位到导航栏部分：
 #### 导航链接配置
 
-| 导航项 | 数据模态属性 | 目标模态 ID | 内容类型 |
+| 导航项 | 数据模态属性 | 目标模态 ID |
 | --- | --- | --- | --- |
 | 学校简介 | `data-modal="intro"` | `intro-modal` |
 | 学校概况 | `data-modal="info"` | `info-modal` |
@@ -186,7 +186,7 @@
 ```
 
 ### 新闻标题与首页展示图片自定义
-
+<img width="1578" height="779" alt="image" src="https://github.com/user-attachments/assets/fd0c345b-2301-4f5a-a1d8-4d67517a2219" />
 
 修改文字与资源依赖：
 
@@ -206,7 +206,6 @@
 
 
 ### 新闻内容自定义
-<img width="1578" height="779" alt="image" src="https://github.com/user-attachments/assets/fd0c345b-2301-4f5a-a1d8-4d67517a2219" />
 以第一条新闻为例：
 
 ```html

@@ -129,6 +129,44 @@
         }
         window.onload = checkFirstVisit;
     </script>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
 </head>
 <body>
     <header role="banner">
@@ -146,13 +184,15 @@
     <!-- 这是弹窗 -->
     <div class="site-notice" id="siteNotice">
         <div class="notice-content">
-            <h2>你好，新同学</h2>
+            <h2>⚠手机端访问一定要打开浏览器设置里的电脑模式！</h2>
             <div class="notice-text">
-                <h3>梦想启航处 青春新序章</h3>
-                <p>     高中是人生的重要转折点，希望你们在齐盛高中这片沃土上，勤奋学习、勇于探索，让青春绽放最美的光彩！”</p>
-                <p style="text-align:right;">—— 淄博齐盛高中校长 姜晓峰</p>
+                <p>淄博齐盛高级中学录取通知书生成器(BATE)</p>
+                <p>可下载，自定义名字</p>
             </div>
-            <button type="button" class="notice-btn" id="closeNotice" onclick="closeNotice()">不负期待</button>
+            <div class="notice-btn-container">
+                <button type="button" class="notice-btn notice-btn-primary" onclick="window.location.href='admission_notice.html'">生成通知书</button>
+                <button type="button" class="notice-btn" id="closeNotice" onclick="closeNotice()">关闭</button>
+            </div>
         </div>
     </div>
 
@@ -167,7 +207,7 @@
                 <li><a href="/teachers" class="nav-link" data-modal="teachers">师资队伍</a></li>
                 <li><a href="/student" class="nav-link" data-modal="students">学生发展</a></li>
                 <li><a href="/features" class="nav-link" data-modal="features">办学特色</a></li>
-                <li><a href="/admission" class="nav-link" data-modal="admission">招生信息</a></li>
+                <li><a href="/admission" class="nav-link" data-modal="admission">招生简章</a></li>
             </ul>
         </div>
     </nav>
@@ -179,6 +219,11 @@
                 <h2>学校简介</h2>
                 <div class="modal-text">
                     <p>淄博齐盛高级中学位于鲁泰大道以北，天津路以东，是2018年由市委市政府批准建设的公办普通高级中学，学校占地132亩，建筑面积68768平方米，各项设施配备全市一流。2021年秋季学期，学校正式投入使用。</p>
+                    <div class="gallery-item">
+                        <div class="video-container">
+                            <iframe src="//www.bilibili.com/blackboard/html5mobileplayer.html?aid=675590858&bvid=BV1TU4y1A72t&cid=410440401&p=1&danmaku=0&autoplay=1&hideDanmakuButton=1&noFullScreenButton=1&fjw=0&muted=1" frameborder="no" scrolling="no" allowfullscreen="true"></iframe>
+                        </div>
+                    </div>
                     <p>根据市教育局实施集团化办学改革精神，以淄博实验中学为核心校，淄博齐盛高级中学为成员校，进行紧密型集团化办学模式试点。淄博实验中学将淄博齐盛高级中学的建设、发展纳入三年发展规划，实行紧密型管理，实现人财物统筹互补和优质教育资源共享共用，形成集团内学校相互激励、相互促进、共同发展的格局，逐步把淄博齐盛高级中学建设成为全市一流、走在全省乃至全国前列的新型高中学校。</p>
                     <p>目前，两校管理干部和教师已实现互派交流，两校教育教学已实现共同教研、共同备课、同步检测、同步阅卷、同步分析，两校学生已实现学习、社团活动、主题德育活动等资源同步。</p>
                     <p>两校的集团化办学将会持续下去，会更加紧密！</p>
@@ -210,6 +255,10 @@
                 <span class="close-btn">&times;</span>
                 <h2>学校领导</h2>
                 <div class="modal-text">
+                    <p>此页可以滑动</p>
+                    <div class="gallery-item">
+                        <img src="./static/image/15.jpg" alt="学校领导" class="gallery-image">
+                    </div>
                     <ul class="leadership-list">
                         <li><strong>赵泮利：</strong>党委书记。主持学校党委工作，负责教育集团工作。</li>
                         <li><strong>姜晓峰：</strong>党委副书记、校长。主持学校行政工作，协助赵泮利同志做好学校党委工作。分管党政办公室、财务室。分管职责范围内的安全工作、意识形态工作和党风廉政建设工作。</li>
@@ -231,6 +280,9 @@
                 <h2>师资队伍</h2>
                 <div class="modal-text">
                     <p>教师是学校发展的核心竞争力。淄博齐盛高级中学高度重视教师队伍建设，广纳英才，构建一支师德高尚、业务精湛、结构合理、充满活力的高素质、专业化、创新型新时代教师队伍。</p>
+                    <div style="position: relative; padding: 30% 45%; margin-bottom: 20px;">
+                        <iframe style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;" src="//www.bilibili.com/blackboard/html5mobileplayer.html?aid=114436517928121&bvid=BV1NNV3zdEzQ&cid=25794125525&p=1&danmaku=0&autoplay=1&hideDanmakuButton=1&noFullScreenButton=1&fjw=0&muted=1" frameborder="no" scrolling="no" allowfullscreen="true"></iframe>
+                    </div>
                     <p>学校现有教职工164人，其中，省特级教师1人，齐鲁名师建设工程人选1人，淄博名师3人，淄博名师（名班主任）建设工程人选2人，市优秀教师、优秀班主任18人，市教学能手8人，市级最美教师1人，市级教书育人楷模2人，市区骨干教师19人，硕士研究生109人。学校教师获得省级以上荣誉28人次，获得市级荣誉226人次，获得区县级荣誉206人次。</p>
                     <h3>班主任配备情况</h3>
                     <p>目前，学校一线教师任班主任平均年限达到7年左右。在任班主任平均年龄35岁，年富力强、经验丰富，注重工作方式方法，擅长家校沟通，拥有心理咨询师资格证10人，获得市级以上优秀班主任荣誉8人。</p>
@@ -260,6 +312,9 @@
                         <li>任课教师晚自习、周末自习全员轮流答疑、补弱、培优</li>
                         <li>班主任从早到晚全程陪伴</li>
                         <li>学校领导与管理干部全时段、全方位值班与巡视</li>
+                        <div class="gallery-item">
+                            <img src="./static/image/17.gif" alt="徐泗龙" class="gallery-image">
+                        </div>
                         <li>针对优秀学生实施个性化培养方案</li>
                         <li>与淄博实验中学联合培养，实现高考与名校冲刺双轨并行</li>
                     </ul>
@@ -305,6 +360,9 @@
                 <div class="modal-text">
                     <p>学校全面贯彻党的教育方针，根据市教育局实施集团化办学改革精神，与淄博实验中学实施紧密型集团化办学，集团内两校教育资源一体化管理，党政负责人由一人担任，集团管理效能与教育教学品质有了坚强的组织保障。</p>
                     <h3>紧密型集团化办学</h3>
+                    <div class="gallery-item">
+                        <img src="./static/image/16.jpg" alt="学校全景" class="gallery-image">
+                    </div>
                     <p>两校在办学理念、价值追求、工作品质上融合统一，在教育教学行动、教师队伍发展、高品质高中建设中齐步共进，办学以来，已实现集团内两校"品牌共建、队伍共育、资源共享、课程共创、活动共办、文化共融、特色发展联动"的良性工作机制。淄博齐盛高中已成为展示我市高中教育改革成果的重要窗口，为紧密型集团化办学改革探索出了具有淄博经验的新路径。</p>
                     <h3>特色教学模式</h3>
                     <p>淄博齐盛高级中学教育教学活动与淄博实验中学同步开展、同步实施、同步管理、同步推进。在落实好两校学科组大集体备课的基础上，不断强化"学科组大备课+级部学科组小备课"的集体备课模式，打造以学科组骨干教师为师资团队、以自主编印教材为抓手的虚拟班教学常态，实现教学全面性、阶段性、层次性推进。</p>
@@ -319,13 +377,7 @@
         <div class="modal" id="admission-modal">
             <div class="modal-content">
                 <span class="close-btn">&times;</span>
-                <h2>招生信息</h2>
-                <div class="modal-text">
-                    <h3>2025年招生问答</h3>
-                    <div class="qa-item">
-                        <h4>问题一：齐盛高中今年招多少个班？共多少人？</h4>
-                        <p>答：2025年我校共招收16个班，800人，无特长生招生计划。</p>
-                    </div>
+                <h2>广告位招租</h2>
                 </div>
             </div>
         </div>
@@ -369,7 +421,7 @@
                 <span class="close-btn">&times;</span>
                 <h2>淄博齐盛高中2025级高一新生分班结果查询</h2>
                 <div class="modal-text">
-                    <p>亲爱的2025级新生：        
+                    <p>亲爱的2025级新生：         
                     <p>    欢迎你们！淄博齐盛高中2025级分班信息查询系统已经开放，请按学校要求于7月15日上午到学校报到。可通过以下网址进行分班查询：https://query.vzibo.net/query/type/c2ec82ae8ba1b88841289c72705b41ed.html</p>
                     <p class="news-date">发布时间：2025-07-13</p>
                 </div>
@@ -460,6 +512,9 @@
                     <p>齐盛校园，书声琅琅，青春激荡。淄博齐盛高级中学以紧密融合型集团化办学为依托，围绕立德树人根本任务，培根铸魂，打造精品，臻美臻善，日进日新。学校以"打造激发学生共情的校园文化、赓续浸润学生灵魂的红色基因、构建滋养学生生命的课程体系、拓展润泽学生心灵的空间格局、搭建塑造学生健全人格的共育体系"为重点，逐步构建有温度的全环境育人新格局，教育教学呈现出蓬勃的生机和活力。</p>
                     
                     <h3>打造激发学生共情的校园文化</h3>
+                    <div class="dy-item">
+                        <img src="./static/image/18.jpg" alt="咸鱼" class="dy-image">
+                    </div>
                     <p>文化是一种思想，一种气质，更是一种底蕴，是学校内涵发展的主要载体。自建校以来，学校注重校园文化建设，秉持淄博实验中学教育集团"求真惟实 守正出新"办学理念，努力构建"见贤思齐 于斯为盛"学校精神，"团结勤奋 终身学习"的核心竞争力，"齐盛出品 必出精品"的工作标准追求，"齐盛辉煌 我辈开启；齐盛荣耀 我辈创造"的责任使命担当，以及"攀登、思齐、聚力、深耕"年度文化关键词深入人心。</p>
                     
                     <h3>赓续浸润学生灵魂的红色基因</h3>
@@ -498,6 +553,9 @@
                     <h3>夏作——精研课堂 拔节生长</h3>
                     <p>课堂是学校教育教学的主阵地。</p>
                     <p>"我们的课堂上，总是不缺观众，学校领导、年级主任、学科组长更是常客。"高二级部王云逸同学说。</p>
+                    <div style="position: relative; padding: 30% 45%; margin-bottom: 20px;">
+                        <iframe style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;" src="//www.bilibili.com/blackboard/html5mobileplayer.html?aid=114437121908258&bvid=BV1nvVgzjEVW&cid=25794253199&p=1&danmaku=0&autoplay=1&hideDanmakuButton=1&noFullScreenButton=1&fjw=0&muted=1" frameborder="no" scrolling="no" allowfullscreen="true"></iframe>
+                    </div>
                     <p>每周，齐盛高中与淄博实验中学各学科组一起集体备课。淄博实验中学党委书记、校长，淄博齐盛高中党总支书记赵泮利说："在与淄博实验中学集体备课的基础上，齐盛高中各学科组进行第二次集体备课，根据学情制定更契合实际的教学安排，再经过教师的个性化备课，为全面提升课堂教学品质、加快促进教师专业发展探索出了'齐盛'经验。"</p>
                     <p>学校深耕高品质课堂建设，"4+1"课堂品质提升月（高品质课堂教学专题教研、高品质课堂专题调研、专家进校园听评课、学科组长听评课+课堂教学常规管理）、课堂品质展示月、标杆高效课堂、精品复习课堂等一系列活动，形成了"素养立意、学为中心、思维进阶、情智共融、生命丰盈"的齐盛高中课堂品质。</p>
                     <p>学校的融合课堂在我市高中学校是首创的，既拓宽了学生视野，又提升了学生素养。</p>
@@ -560,6 +618,7 @@
             <div class="features-grid">
                 <article class="feature-card">
                     <div class="feature-icon">👨‍🏫</div>
+                    <div class="wyh是sb"></div>
                     <h3>教师团队</h3>
                     <p>学校现有教职工164人，其中，省特级教师1人，齐鲁名师建设工程人选1人，淄博名师3人，淄博名师（名班主任）建设工程人选2人，市优秀教师、优秀班主任18人，市教学能手8人，市级最美教师1人，市级教书育人楷模2人，市区骨干教师19人，硕士研究生109人。</p>
                 </article>
@@ -595,6 +654,54 @@
                 </div>
             </div>
 
+            <!-- 学科组合照展示 -->
+            <div class="subject-group-gallery">
+                <!-- 语文组 -->
+                <div class="gallery-item">
+                    <img src="./static/image/chinese.jpg" alt="语文组合照" class="gallery-image">
+                </div>
+
+                <!-- 数学组 -->
+                <div class="gallery-item">
+                    <img src="./static/image/math.jpg" alt="数学组合照" class="gallery-image">
+                </div>
+
+                <!-- 英语组 -->
+                <div class="gallery-item">
+                    <img src="./static/image/english.jpg" alt="英语组合照" class="gallery-image">
+                </div>
+
+                <!-- 物理组 -->
+                <div class="gallery-item">
+                    <img src="./static/image/physics.jpg" alt="物理组合照" class="gallery-image">
+                </div>
+
+                <!-- 化学组 -->
+                <div class="gallery-item">
+                    <img src="./static/image/chemistry.jpg" alt="化学组合照" class="gallery-image">
+                </div>
+
+                <!-- 生物组 -->
+                <div class="gallery-item">
+                    <img src="./static/image/biology.jpg" alt="生物组合照" class="gallery-image">
+                </div>
+
+                <!-- 政治组 -->
+                <div class="gallery-item">
+                    <img src="./static/image/politics.jpg" alt="政治组合照" class="gallery-image">
+                </div>
+
+                <!-- 历史组 -->
+                <div class="gallery-item">
+                    <img src="./static/image/history.jpg" alt="历史组合照" class="gallery-image">
+                </div>
+
+                <!-- 地理组 -->
+                <div class="gallery-item">
+                    <img src="./static/image/geography.jpg" alt="地理组合照" class="gallery-image">
+                </div>
+            </div>
+
             <!-- 测试添加一下结构化数据 -->
             <script type="application/ld+json">
             {
@@ -617,7 +724,7 @@
             </script>
         </div>
     </section>
-
+    <h4>‎</h4>
     <!-- 学生发展页 -->
     <section class="student-development" id="student-development">
         <div class="container">
@@ -634,7 +741,7 @@
                 <article class="feature-card">
                     <div class="feature-icon">🌟</div>
                     <h3>特色活动</h3>
-                    <p>举办三届“青春向党身边榜样”十佳中学生暨新时代好少年评选，每学期举办社团嘉年华。</p>
+                    <p>举办三届"青春向党身边榜样"十佳中学生暨新时代好少年评选，每学期举办社团嘉年华。</p>
                 </article>
 
                 <article class="feature-card">
@@ -645,20 +752,20 @@
             </div>
 
             <div class="features-stats">
-                <div class="stat-item">
-                    <h4>优秀班级</h4>
-                    <div class="stat-number">15</div>
-                    <p>省市优秀班级</p>
+                <div class="gallery-item">
+                    <div class="video-container">
+                        <iframe src="//www.bilibili.com/blackboard/html5mobileplayer.html?aid=113338449141632&bvid=BV1R1y8YfEYa&cid=26376408787&p=1&danmaku=0&autoplay=1&hideDanmakuButton=1&noFullScreenButton=1&fjw=0&muted=1&t=76" frameborder="no" scrolling="no" allowfullscreen="true"></iframe>
+                    </div>
                 </div>
-                <div class="stat-item">
-                    <h4>优秀学生</h4>
-                    <div class="stat-number">69</div>
-                    <p>省市级优秀学生</p>
+                <div class="gallery-item">
+                    <div class="video-container">
+                        <iframe src="//www.bilibili.com/blackboard/html5mobileplayer.html?aid=114432088740092&bvid=BV1zfGqzDEik&cid=29735324621&p=1&danmaku=0&autoplay=1&hideDanmakuButton=1&noFullScreenButton=1&fjw=0&muted=1" frameborder="no" scrolling="no" allowfullscreen="true"></iframe>
+                    </div>
                 </div>
-                <div class="stat-item">
-                    <h4>优秀学生干部</h4>
-                    <div class="stat-number">15</div>
-                    <p>省市优秀学生干部</p>
+                <div class="gallery-item">
+                    <div class="video-container">
+                        <iframe src="//www.bilibili.com/blackboard/html5mobileplayer.html?aid=807665315&bvid=BV1x34y1r7wS&cid=469999755&p=1&danmaku=0&autoplay=1&hideDanmakuButton=1&noFullScreenButton=1&fjw=0&muted=1&t=36" frameborder="no" scrolling="no" allowfullscreen="true"></iframe>
+                    </div>
                 </div>
             </div>
 
@@ -793,10 +900,13 @@
                     <img src="./static/image/3.JPG" alt="校园风光3" class="gallery-image">
                 </div>
 
-                <!-- 图片4 -->
+                <!-- 视频 -->
                 <div class="gallery-item">
-                    <img src="./static/image/4.JPG" alt="校园风光4" class="gallery-image">
+                    <div class="video-container">
+                        <iframe src="//www.bilibili.com/blackboard/html5mobileplayer.html?aid=114755083705660&bvid=BV1RkK6zqEga&cid=25818111057&p=1&danmaku=0&autoplay=1&hideDanmakuButton=1&noFullScreenButton=1&fjw=0&muted=1" frameborder="no" scrolling="no" allowfullscreen="true"></iframe>
+                    </div>
                 </div>
+
                 <!-- 懒得打了 -->
                 <div class="gallery-item">
                     <img src="./static/image/5.JPG" alt="校园风光5" class="gallery-image">

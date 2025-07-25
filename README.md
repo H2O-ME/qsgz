@@ -81,11 +81,16 @@
 | JS代码 | `app.min.js` | UI 管理和交互功能 |
 | 静态资源 | `static/image/*` | 媒体内容和视觉资源 |
 | SEO 配置 | `robots.txt`,`sitemap.xml` | 搜索引擎优化和内容发现 |
+<img width="1683" height="311" alt="image" src="https://github.com/user-attachments/assets/ad3e80e8-be1e-476c-9bce-7320b5e17644" />
 
 
-### HTML 文档结构
+
+### 主HTML结构
 主网站使用具有基于模态的内容架构的 index.html 实现为单页应用程序。所有内容部分都嵌入为隐藏的模式容器，并通过 JavaScript 交互动态显示。
 <img width="1798" height="215" alt="image" src="https://github.com/user-attachments/assets/a7ba31ea-8b49-4ee2-91de-8a664c2437a7" />
+### JavaScript 组件架构
+<img width="1655" height="792" alt="image" src="https://github.com/user-attachments/assets/c52f7b9b-6f14-4040-8fbf-0dfece331571" />
+
 ### 模态系统架构
 内容交付机制使用了复杂的模态框系统，菜单导航链接触发的是隐藏内容容器的显示，而不是传统的页面导航。
 <img width="1696" height="346" alt="image" src="https://github.com/user-attachments/assets/2f517933-bf86-4a87-991e-7a5c10f5c6b8" />

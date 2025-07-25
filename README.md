@@ -133,7 +133,7 @@
 #### 导航链接配置
 
 | 导航项 | 数据模态属性 | 目标模态 ID |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | 学校简介 | `data-modal="intro"` | `intro-modal` |
 | 学校概况 | `data-modal="info"` | `info-modal` |
 | 学校领导 | `data-modal="leadership"` | `leadership-modal` |

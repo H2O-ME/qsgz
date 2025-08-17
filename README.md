@@ -44,6 +44,8 @@
 * **Google 字体**：排版增强
 ## 部署
 
+[![Deploy with EdgeOne Pages](https://cdnstatic.tencentcs.com/edgeone/pages/deploy.svg)](https://edgeone.ai/pages/new?from=github&template=qsgz.thw.lol)
+
 
 
 ### 📝 使用说明
@@ -52,6 +54,7 @@
 2. 使用现代浏览器打开 `index.html` 即可查看网站
 3. 根据需求修改 `index.html` 中的内容，看完下面的内容可以帮助你快速学会修改网站的内容
 4. 更新你的静态资源到 `static` 目录下
+5. 点击上方的EdgeOne Pages一键部署（可选）
 
 
 ## 开发

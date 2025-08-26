@@ -3,11 +3,10 @@
   <h1>淄博齐盛高级中学网站</h1>
   <p>学生自制的现代化的学校网站</p>
   
-  ![License](https://img.shields.io/badge/License-AFN-blue.svg)
+  ![License](https://img.shields.io/badge/MIT-blue.svg)
   ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
   ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
   ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
-  ![jQuery](https://img.shields.io/badge/jQuery-0769AD?style=flat&logo=jquery&logoColor=white)
   [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/H2O-ME/qsgz)
 </div>
 
@@ -318,7 +317,7 @@
 答：在本项目中，采用纯前端实现，1是降低开发复杂度：完整的网站通常包含后端服务、数据库等组件，若要从零构建一个功能完备的后端系统，不仅需要大量时间进行架构设计和接口开发，还需考虑数据格式、安全性、性能优化等问题。2是对于学生而言，云服务器费用过高。而纯前端几乎为零的运维成本显然更合适，虽然纯前端项目在内容更新上不够灵活，但经过了一次大规模代码重构过后，目前直观模块化的html结构使得内容维护的门槛已经大大降低。
 ## 📄 许可证
 
-本项目使用 [AFN-License 2.0](LICENSE) 授权。
+本项目使用 [MIT](LICENSE) 授权。
 
 ---
 
